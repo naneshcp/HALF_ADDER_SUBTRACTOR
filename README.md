@@ -55,7 +55,7 @@ Figure -02 HALF Subtractor
 Developed by: Naneshvaran 
 RegisterNumber: 24900972 */
 
-module half_add_sub(a,b,bin,cy,df);
+module half_add(a,b,bin,cy,df);
  input a,b,bin;
  output cy,df;
  xor(sm,a,b);
@@ -67,13 +67,23 @@ module half_add_sub(a,b,bin,cy,df);
  assign df =w1^bin;
  assign bo=w2|w3;
  endmodule
+module half_sub(a,b,difference,borrow);
+input a,b;
+output difference,borrow;
+assign difference= (a ^ b);
+assign borrow= ( ~a & b);
+endmodule
+
+
 ```
 
 **RTL Schematic**
 ![output03(de) (1)](https://github.com/user-attachments/assets/56939a09-9e37-493e-b3f1-43eb6c38b3bf)
+![Screenshot 2024-12-21 221850](https://github.com/user-attachments/assets/7d7a5deb-805a-455e-b876-61b9aa166c3b)
 
 **Output/TIMING Waveform**
 ![waveform03](https://github.com/user-attachments/assets/2ff54128-3030-49a2-afbf-353972a1b86a)
+![Screenshot 2024-12-21 222007](https://github.com/user-attachments/assets/62a7344d-a1c4-424d-9d7d-b9e2663517af)
 
 **Result:**
 Thus the result was successfully verified
